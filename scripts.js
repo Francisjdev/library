@@ -51,8 +51,11 @@ function displayLibrary(arr){
         let hauthor = document.createElement("p")
         let hpaginas = document.createElement("p")
         let hleido = document.createElement("p")
+        let bleido = document.createElement("button")
         const bookCard = document.createElement("div")
         const content = document.createElement("div")
+        bleido.addEventListener('click', ()=>{
+             (cleido.textContent=="si") ?  cleido.textContent="no": cleido.textContent="si" })
         content.classList.add('content')
         bookCard.classList.add("card")
         htitulo.textContent = "Titulo"
@@ -70,7 +73,8 @@ function displayLibrary(arr){
         content.appendChild(hpaginas)
         content.appendChild(cpaginas)
         content.appendChild(hleido)
-        content.appendChild(cleido)
+        content.appendChild(cleido)  
+        content.appendChild(bleido)
         bookCard.appendChild(content)
         screen.appendChild(bookCard)
     }
