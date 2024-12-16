@@ -3,44 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Library</title>
 </head>
 <body>
     <main>
-        <header>
-            <ul>
-                <li>Library App</li>
+        <header class="header">
+            <ul class="navbar">
+                <li>logo here</li>
+                <li><h1>Library App</h1></li>
                 <li> <button id="newBook"> Add book</button></li>
             </ul>
             
         </header>
         <div id="container">
-
+       
         </div>
+   <!-- only visible through add book btn-->
+        <dialog class="modal">
+          <form action=" " class="form" method="dialog">
+              <div class=" title">
+                  <label for="title">Book's Title: </label>
+                  <input type="text" name="title" id="title" required />
+                </div>
+                <div class="author">
+                  <label for="author">Book's Author: </label>
+                  <input type="text" name="author" id="author" required />
+                </div>
+                <div class="pages">
+                  <label for="pages">Number of Pages: </label>
+                  <input type="text" name="pages" id="pages" required />
+                </div>
+                <div class="read">
+                  <label for="read">Have you read it?: </label>
+                  <input type="text" name="read" id="read" required />
+                </div>
+                <div class="input" id="addBtn">
+                  <input type="submit" value="Add to my library!!" />
+              
+                </div>
+                <div class="close" id="closeBtn">
+                  <input type="submit" value="Close window!!" />
+                </div>
+          </form>
+      </dialog>
+        <!-- only visible through js
+        <div class="card">
+          <div class="back">
+            <div class="blob">1</div>
+            <div class="blob">2</div>
+            <div class="blob">3</div>
+            <div class="blob">4</div>
+            <div class="blob">5</div>
+          </div>
+-->
     </main>
-    <dialog class="modal">
-        <form action=" " class="form" method="dialog">
-            <div class=" title">
-                <label for="title">Book's Title: </label>
-                <input type="text" name="title" id="title" required />
-              </div>
-              <div class="author">
-                <label for="author">Book's Author: </label>
-                <input type="text" name="author" id="author" required />
-              </div>
-              <div class="pages">
-                <label for="pages">Number of Pages: </label>
-                <input type="text" name="pages" id="pages" required />
-              </div>
-              <div class="read">
-                <label for="read">Have you read it?: </label>
-                <input type="text" name="read" id="read" required />
-              </div>
-              <div class="input" id="addBtn">
-                <input type="submit" value="Add to my library!!" />
-              </div>
-        </form>
-    </dialog>
+  
   
     
     <script src="scripts.js"></script>

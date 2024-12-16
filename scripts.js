@@ -1,6 +1,6 @@
 const screen = document.getElementById("container")
 const newBookBtn = document.getElementById("newBook")
-const modal = document.querySelector(".modal")
+const modal = document.querySelector("dialog")
 const addBtn = document.querySelector("#addBtn")
 const title = document.querySelector("#title")
 const author = document.querySelector("#author")
@@ -26,13 +26,12 @@ function addBookToLibrary(ele) {
 }
 function showForm(obj){
     obj.addEventListener('click', () => {
+        modal.close();
         modal.showModal();
     } )
 }
 function saveBook(obj){
     obj.addEventListener('click', (e) => {
-        console.log(title,author,pages,read)
-        
         addBookToLibrary(createBook(title.value, author.value, pages.value, read.value))
     } )
 }
@@ -44,8 +43,35 @@ function createBook(a, b, c, d){
 function displayLibrary(arr){
     screen.textContent=" "
     for(let book of arr){
+        let ctitulo = document.createElement("p")
+        let cauthor = document.createElement("p")
+        let cpaginas = document.createElement("p")
+        let cleido = document.createElement("p")
+        let htitulo = document.createElement("p")
+        let hauthor = document.createElement("p")
+        let hpaginas = document.createElement("p")
+        let hleido = document.createElement("p")
         const bookCard = document.createElement("div")
-        bookCard.textContent = book.info()
+        const content = document.createElement("div")
+        content.classList.add('content')
+        bookCard.classList.add("card")
+        htitulo.textContent = "Titulo"
+        hauthor.textContent = "Author"
+        hpaginas.textContent = "Paginas"
+        hleido.textContent = "Ha sido leido?"
+        ctitulo.textContent = book.title
+        cauthor.textContent = book.author
+        cpaginas.textContent = book.pages
+        cleido.textContent = book.read
+        content.appendChild(htitulo)
+        content.appendChild(ctitulo)
+        content.appendChild(hauthor)
+        content.appendChild(cauthor)
+        content.appendChild(hpaginas)
+        content.appendChild(cpaginas)
+        content.appendChild(hleido)
+        content.appendChild(cleido)
+        bookCard.appendChild(content)
         screen.appendChild(bookCard)
     }
 }
