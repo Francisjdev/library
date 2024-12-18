@@ -42,7 +42,7 @@ function createBook(a, b, c, d){
 }
 function displayLibrary(arr){
     screen.textContent=" "
-    for(let book of arr){
+    for(let book in arr){
         let ctitulo = document.createElement("p")
         let cauthor = document.createElement("p")
         let cpaginas = document.createElement("p")
@@ -52,20 +52,28 @@ function displayLibrary(arr){
         let hpaginas = document.createElement("p")
         let hleido = document.createElement("p")
         let bleido = document.createElement("button")
+        let borrar = document.createElement("button")
         const bookCard = document.createElement("div")
         const content = document.createElement("div")
         bleido.addEventListener('click', ()=>{
              (cleido.textContent=="si") ?  cleido.textContent="no": cleido.textContent="si" })
+        borrar.addEventListener('click', ()=>{
+            arr.splice(book,1)
+            displayLibrary(arr)
+            console.log("estoy borrando algo")})
         content.classList.add('content')
         bookCard.classList.add("card")
+        bookCard.setAttribute("id", `${book}`);
         htitulo.textContent = "Titulo"
         hauthor.textContent = "Author"
         hpaginas.textContent = "Paginas"
         hleido.textContent = "Ha sido leido?"
-        ctitulo.textContent = book.title
-        cauthor.textContent = book.author
-        cpaginas.textContent = book.pages
-        cleido.textContent = book.read
+        ctitulo.textContent = arr[book].title
+        cauthor.textContent = arr[book].author
+        cpaginas.textContent = arr[book].pages
+        cleido.textContent = arr[book].read
+        bleido.textContent = "Cambiar"
+        borrar.textContent = "Eliminar"
         content.appendChild(htitulo)
         content.appendChild(ctitulo)
         content.appendChild(hauthor)
@@ -75,6 +83,7 @@ function displayLibrary(arr){
         content.appendChild(hleido)
         content.appendChild(cleido)  
         content.appendChild(bleido)
+        content.appendChild(borrar)
         bookCard.appendChild(content)
         screen.appendChild(bookCard)
     }
