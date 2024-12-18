@@ -39,7 +39,12 @@ function closeForm(obj){
 }
 function saveBook(obj){
     obj.addEventListener('click', (e) => {
-        addBookToLibrary(createBook(title.value, author.value, pages.value, read.value))
+        if (!title.value|| !author.value||!pages.value||!read.value){
+            e.preventDefault(); // Prevent form submission 
+            alert("Please fill in all required fields.");
+        }
+        else{
+            addBookToLibrary(createBook(title.value, author.value, pages.value, read.value))}
     } )
 }
 function createBook(a, b, c, d){
