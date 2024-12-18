@@ -6,9 +6,11 @@ const title = document.querySelector("#title")
 const author = document.querySelector("#author")
 const pages = document.querySelector("#pages")
 const read = document.querySelector("#read")
+const closeBtn = document.querySelector("#closeBtn")
 
 showForm(newBookBtn)
 saveBook(addBtn)
+closeForm(closeBtn)
 const myLibrary = [];
 
 function Book( title, author, pages, read) {
@@ -28,6 +30,11 @@ function showForm(obj){
     obj.addEventListener('click', () => {
         modal.close();
         modal.showModal();
+    } )
+}
+function closeForm(obj){
+    obj.addEventListener('click', () => {
+        modal.close();
     } )
 }
 function saveBook(obj){
